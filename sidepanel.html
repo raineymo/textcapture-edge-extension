@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TextCapture 文字捕获</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="icons/icon32.png" alt="" class="logo">
+      <span>TextCapture</span>
+    </div>
+    <button id="btnExtract" class="btn primary">一键提取</button>
+  </header>
+
+  <div class="toolbar">
+    <select id="imageMode" class="select" title="图片处理方式">
+      <option value="link">图片：保留链接</option>
+      <option value="screenshot">图片：截图嵌入</option>
+      <option value="placeholder">图片：占位符 [图片]</option>
+    </select>
+    <button id="btnCopy" class="btn" disabled>复制</button>
+    <button id="btnExportMd" class="btn" disabled>导出 .md</button>
+    <button id="btnExportTxt" class="btn" disabled>导出 .txt</button>
+    <label class="view-toggle" title="切换源码/渲染视图">
+      <input type="checkbox" id="toggleRaw">
+      <span>源码</span>
+    </label>
+  </div>
+
+  <div id="status" class="status">点击「一键提取」抓取当前页面的可见文本（含被禁复制的内容）</div>
+
+  <main id="content" class="markdown-body empty">
+    <div class="placeholder">
+      <p>提取结果将以 Markdown 格式显示在这里</p>
+      <p class="dim">支持标题、列表、表格、图片、代码块等结构</p>
+    </div>
+  </main>
+
+  <pre id="raw" class="raw hidden"></pre>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
